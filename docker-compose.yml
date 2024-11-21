@@ -1,0 +1,13 @@
+services:
+  config-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: alexjuep/config-server:latest
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    environment:
+      SPRING_APPLICATION_NAME: config-server
+      SPRING_CLOUD_CONFIG_SERVER_GIT_URI: https://github.com/aduii/back-config-repo
+      SPRING_CLOUD_CONFIG_SERVER_GIT_CLONE_ON_START: "true"
